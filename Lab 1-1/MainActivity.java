@@ -1,4 +1,4 @@
-package com.example.yea2.hello;
+package com.example.yea2.changeimage;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -7,36 +7,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+
+import com.example.yea2.changeimage.R;
 
 public class MainActivity extends AppCompatActivity {
-    public EditText edit_name;
-    public Button btn_print;
-    public Button btn_clear;
-    public TextView view_print;
+    ImageView imageView;
+    ImageView imageView2;
+    int imageIndex=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
+        imageView= (ImageView)findViewById(R.id.blue);
+        imageView2=(ImageView)findViewById(R.id.red);
     }
-    public void init(){
-        edit_name=(EditText)findViewById(R.id.Edit);
-        btn_print=(Button)findViewById(R.id.Print);
-        btn_clear=(Button)findViewById(R.id.Clear);
-        view_print=(TextView)findViewById(R.id.contents);
-    }
+    public void onButton1Clicked(View v){
+        changeImage();
 
-    public void clearClicked(View v){
-        edit_name.setText("");
-        view_print.setText("");
     }
-    public void printClicked(View v){
-        String text="";
-       text=edit_name.getText().toString();
-       view_print.setText(text);
+    private void changeImage(){
+        if(imageIndex==0){
+            imageView.setVisibility(View.VISIBLE);
+            imageView2.setVisibility(View.INVISIBLE);
+            imageIndex=1;
+        }
+        else if(imageIndex==1){
+            imageView.setVisibility(View.INVISIBLE);
+            imageView2.setVisibility(View.VISIBLE);
+            imageIndex=0;
+        }
     }
 }
