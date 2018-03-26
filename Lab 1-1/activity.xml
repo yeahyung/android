@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.yea2.changeimage.MainActivity">
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHANGE IMAGE"
+        android:onClick="onButton1Clicked"          // activity_main에서 클릭시 실행될 method 정의
+        android:layout_gravity="center"              // change 버튼 화면 가운데 놓기 위해
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/FrameLayout"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/red"                    // activity_main에서 red id를 통해 참조가능
+            android:src="@drawable/red"             // drawable 폴더에 있는 red파일 참조                              
+            android:visibility="visible"/>          // 처음에 보이게 설정
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/blue"                    // activity_main에서 blue id를 통해 참조 가능 
+            android:src="@drawable/blue"                // drawable폴더에 있는 blue파일 참조
+            android:visibility="invisible"/>            // 처음에 안보이게 설정
+    </FrameLayout>
+
+</LinearLayout>
