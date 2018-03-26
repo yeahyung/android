@@ -6,34 +6,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.yea2.changeimage.MainActivity">
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CHANGE IMAGE"
-        android:onClick="onButton1Clicked"
-        android:layout_gravity="center"
-        />
+    tools:context="com.example.yea2.hello.MainActivity">
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+            <TableRow>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/FrameLayout"
-        >
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/red"
-            android:src="@drawable/red"
-            android:visibility="visible"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/blue"
-            android:src="@drawable/blue"
-            android:visibility="invisible"/>
-    </FrameLayout>
+                <TextView
+                    android:text="Name"
+                    android:padding="3dp"/>
+                <EditText
+                    android:hint="type your name"
+                    android:id="@+id/Edit"/>
+
+            </TableRow>
+        </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Clear"
+            android:text="CLEAR"
+            android:onClick="clearClicked"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Print"
+            android:layout_toRightOf="@+id/Clear"
+            android:text="Print"
+            android:onClick="printClicked"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contents"
+            android:text="contents"
+            android:padding="3dp"
+            android:layout_below="@+id/Clear"
+            />
+    </RelativeLayout>
 
 
 </LinearLayout>
