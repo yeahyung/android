@@ -1,4 +1,4 @@
-package com.example.yea2.changeimage;
+package com.example.yea2.hello;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -7,36 +7,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import com.example.yea2.changeimage.R;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView imageView;
-    ImageView imageView2; 
-    int imageIndex=0;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        imageView= (ImageView)findViewById(R.id.blue);     // 안드로이드 블루 이미지뷰 참조
-        imageView2=(ImageView)findViewById(R.id.red);      // 안드로이드 레드 이미지뷰 참조
-    }
-    public void onButton1Clicked(View v){                   // 버튼클릭시 실행할 함수
-        changeImage();                                         // 버튼클릭시 changeImage method 실행
-    }
-    private void changeImage(){
-        if(imageIndex==0){                                        // imageIndex가 0이면 블루이미지
-            imageView.setVisibility(View.VISIBLE);
-            imageView2.setVisibility(View.INVISIBLE);
-            imageIndex=1;}                 // imageIndex 1로 바꿔 다음에 버튼을 누르면 레드이미지로 바뀌게 한다.            else if(imageIndex==1){                           // imageIndex가 1이면 레드이미지
-            imageView.setVisibility(View.INVISIBLE);
-            imageView2.setVisibility(View.VISIBLE);
-            imageIndex=0; // imageIndex 0으로 바꿔 다음에 버튼을 누르면 블루이미지로 바뀌게 한다.                                              
-        }
-    }
+    public EditText edit_name;
+    public Button btn_print;
+    public Button btn_clear;
+    public TextView view_print;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        init();
+    }
+    public void init(){
+        edit_name=(EditText)findViewById(R.id.Edit);
+        btn_print=(Button)findViewById(R.id.Print);
+        btn_clear=(Button)findViewById(R.id.Clear);
+        view_print=(TextView)findViewById(R.id.contents);
+    }
+
+    public void clearClicked(View v){
+        edit_name.setText("");
+        view_print.setText("");
+    }
+    public void printClicked(View v){
+        String text="";
+       text=edit_name.getText().toString();
+       view_print.setText(text);
+    }
 }
-
- 
-
